@@ -13,4 +13,5 @@ alias n="nvim"
 alias s="sync"
 alias r="rm -rf "
 alias m="mkdir -p"
+function cm; mkdir -p $argv ; cd $argv ; end
 alias cf="env HOME=(mktemp -d) fish --login"
