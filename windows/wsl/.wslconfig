@@ -1,0 +1,11 @@
+[WSL2]
+nestedVirtualization=true
+kernel="C:\\Users\\satori\\scoop\\apps\\wsl2-next\\current\\bzImage"
+localhostForwarding=True
+#kernel="C:\\Users\\satori\\bzImage"
+#memory=12GB
+swap=120GB
+swapFile="D:\\WSL\\swap.vhdx"
+[network]
+generateHosts=true
+generateResolvConf=true
