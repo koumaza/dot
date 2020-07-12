@@ -1,6 +1,6 @@
 # Env
 # Path
-set -gx PATH ~/bin $PATH
+set -gx PATH ~/bin ~/.bin $GOPATH $RUBYPATH $GEMPATH $PATH
 # Alias
 alias fish.=". ~/.config/fish/config.fish"
 alias repo2sync="repo sync -c -j(math (nproc --all) \* 24) --force-sync --no-clone-bundle --no-tags"
