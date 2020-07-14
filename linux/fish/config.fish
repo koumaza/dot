@@ -1,7 +1,9 @@
 # Env
 set -gx GOPATH ~/go
+set -gx GEMPATH ~/.gem/ruby/*
+set -gx GEMBINPATH (echo $GEMPATH|sed -e "s/ /\/bin /g" -e 's/$/\/bin /g')
 # Path
-set -gx PATH ~/bin ~/.bin $GOPATH/bin $RUBYPATH $GEMPATH $PATH
+set -gx PATH ~/bin ~/.bin $GOPATH/bin $RUBYPATH $GEMBINPATH $PATH
 # Alias
 alias fish.=". ~/.config/fish/config.fish"
 alias repo2sync="repo sync -c -j(math (nproc --all) \* 24) --force-sync --no-clone-bundle --no-tags"
