@@ -1,6 +1,7 @@
 # Env
+set -gx GOPATH ~/go
 # Path
-set -gx PATH ~/bin ~/.bin $GOPATH $RUBYPATH $GEMPATH $PATH
+set -gx PATH ~/bin ~/.bin $GOPATH/bin $RUBYPATH $GEMPATH $PATH
 # Alias
 alias fish.=". ~/.config/fish/config.fish"
 alias repo2sync="repo sync -c -j(math (nproc --all) \* 24) --force-sync --no-clone-bundle --no-tags"
@@ -17,3 +18,11 @@ alias m="mkdir -p"
 function cm; mkdir -p $argv ; cd $argv ; end
 alias cf="env HOME=(mktemp -d) fish --login"
 alias curlo="curl -LO"
+# Prompt
+function fish_prompt
+    eval $GOPATH/bin/powerline-go -error $status -shell bare
+end
+function fish_prompt
+    set duration (math -s6 "$CMD_DURATION / 1000")
+    $GOPATH/bin/powerline-go -modules duration -duration $duration -error $status -shell bare
+end
