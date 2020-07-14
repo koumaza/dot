@@ -1,4 +1,5 @@
 # Env
+git config --global ghq.root $HOME/repo
 set -gx GOPATH ~/go
 set -gx GEMPATH ~/.gem/ruby/*
 set -gx GEMBINPATH (echo $GEMPATH|sed -e "s/ /\/bin /g" -e 's/$/\/bin /g')
@@ -27,6 +28,8 @@ if not functions -q fisher
     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
     fish -c fisher
 end
+set -U FZF_LEGACY_KEYBINDINGS 0
+set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 # Prompt
 function fish_prompt
         set -gx pstatus $status
