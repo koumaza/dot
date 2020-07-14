@@ -20,9 +20,27 @@ alias cf="env HOME=(mktemp -d) fish --login"
 alias curlo="curl -LO"
 # Prompt
 function fish_prompt
-    eval $GOPATH/bin/powerline-go -error $status -shell bare
+        set -gx pstatus $status
+        eval $GOPATH/bin/powerline-go \
+        -modules user,aws,cwd,docker,dotenv,exit,hg,host,jobs,kube,nix-shell,node,perlbrew,perms,plenv,shenv,ssh,svn,termtitle,terraform-workspace,venv,vgo,root \
+        -colorize-hostname \
+        -condensed \
+        -cwd-max-dir-size -1 \
+        -error $status \
+        -git-assume-unchanged-size 4096 \
+        -hostname-only-if-ssh \
+        -path-aliases \$GOPATH/src/github.com=@GOPATH-GH,\~/work/projects/foo=@FOO,\~/work/projects/bar=@BAR \
+        -shell bare
 end
-function fish_prompt
-    set duration (math -s6 "$CMD_DURATION / 1000")
-    $GOPATH/bin/powerline-go -modules duration -duration $duration -error $status -shell bare
+function fish_right_prompt
+        set duration (math -s6 "$CMD_DURATION / 1000")
+        eval $GOPATH/bin/powerline-go \
+        -modules exit,git,gitlite,duration,time,load \
+        -condensed \
+        -error $pstatus \
+        -numeric-exit-codes \
+        -static-prompt-indicator \
+        -git-assume-unchanged-size 4096 \
+        -duration $duration \
+        -shell bare
 end
