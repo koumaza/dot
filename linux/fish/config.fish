@@ -3,6 +3,8 @@ git config --global ghq.root $HOME/repo
 set -gx GOPATH ~/go
 set -gx GEMPATH ~/.gem/ruby/*
 set -gx GEMBINPATH (echo $GEMPATH|sed -e "s/ /\/bin /g" -e 's/$/\/bin /g')
+set -gx FISHCONFIG ~/.config/fish/config.fish
+set -gx EDITOR nvim
 # Path
 set -gx PATH ~/bin ~/.bin $GOPATH/bin $RUBYPATH $GEMBINPATH $PATH
 # Alias
@@ -22,6 +24,7 @@ alias m="mkdir -p"
 function cm; mkdir -p $argv ; cd $argv ; end
 alias cf="env HOME=(mktemp -d) fish --login"
 alias curlo="curl -LO"
+function fishconfig; $EDITOR $FISHCONFIG
 # Fisher
 if not functions -q fisher
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
@@ -48,7 +51,7 @@ end
 function fish_right_prompt
         set duration (math -s6 "$CMD_DURATION / 1000")
         eval $GOPATH/bin/powerline-go \
-        -modules exit,git,gitlite,duration,time,load \
+        -modules exit,git,duration,time,load \
         -condensed \
         -error $pstatus \
         -numeric-exit-codes \
