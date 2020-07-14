@@ -28,6 +28,7 @@ function fish_prompt
         -modules user,aws,cwd,docker,dotenv,exit,hg,host,jobs,kube,nix-shell,node,perlbrew,perms,plenv,shenv,ssh,svn,termtitle,terraform-workspace,venv,vgo,root \
         -colorize-hostname \
         -condensed \
+        -cwd-max-depth 10 \
         -cwd-max-dir-size -1 \
         -error $status \
         -git-assume-unchanged-size 4096 \
