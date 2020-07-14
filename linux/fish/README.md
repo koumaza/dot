@@ -17,10 +17,10 @@ curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fi
 ```
 ```python
 fisher add \
-jethrokuan/fzf \
-FabioAntunes/fish-nvm \
-edc/bass \
-jethrokuan/z \
-0rax/fish-bd \
-sijad/gitignore
+  jethrokuan/fzf \
+  FabioAntunes/fish-nvm \
+  edc/bass \
+  jethrokuan/z \
+  0rax/fish-bd \
+  sijad/gitignore
 ```
