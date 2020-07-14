@@ -26,6 +26,10 @@ alias cf="env HOME=(mktemp -d) fish --login"
 alias curlo="curl -LO"
 function fishconfig; $EDITOR $FISHCONFIG; fish.; end
 function repofind; ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 (ghq root)/{}/README*"; end
+# Keybind
+function fish_user_key_bindings
+  bind \cg repofind
+end
 # Fisher
 if not functions -q fisher
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
