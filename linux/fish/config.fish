@@ -24,7 +24,7 @@ alias m="mkdir -p"
 function cm; mkdir -p $argv ; cd $argv ; end
 alias cf="env HOME=(mktemp -d) fish --login"
 alias curlo="curl -LO"
-function fishconfig; $EDITOR $FISHCONFIG; end
+function fishconfig; $EDITOR $FISHCONFIG; fish.; end
 # Fisher
 if not functions -q fisher
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
