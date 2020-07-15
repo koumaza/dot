@@ -6,20 +6,20 @@ termux-wake-lock
 
 rm 	~/.termux/font.ttf
 mkdir 	~/.termux
-wget -O ~/.termux/font.ttf "URI"
+
 
 ### Create usr/local
-
-mkdir -p /data/data/com.termux/files/usr/local/bin/
-echo -n 'export PATH=$PATH:/data/data/com.termux/files/usr/local/bin/'		>> ~/.bashrc
-echo -n 'set -gx PATH $PATH #!/data/data/com.termux/files/usr/local/bin/'	>> ~/.config/fish/config.fish
+mkdir -p ~/.bin ~/bin
+mkdir -p /data/data/com.termux/files/usr/local/bin
+echo -n 'export  PATH=$PATH:/data/data/com.termux/files/usr/local/bin:~/.bin:~/bin'		>> ~/.bashrc
+echo -n 'set -gx PATH $PATH /data/data/com.termux/files/usr/local/bin ~/.bin ~/bin'	  >> ~/.config/fish/config.fish
 
 # Apt
 
 pkg update
 pkg upgrade
 pkg install root-repo unstable-repo x11-repo #repo
-pkg install proot bsdtar curl wget fish vim neovim git tmux #tools
+pkg install proot bsdtar curl wget fish vim neovim git tmux openssh go jq aria2 #tools
 
 ## Pacapt
 
