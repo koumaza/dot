@@ -10,7 +10,6 @@ set -gx PATH ~/bin ~/.bin $GOPATH/bin $RUBYPATH $GEMBINPATH $PATH
 # Alias
 alias fish.=". ~/.config/fish/config.fish"
 alias repo2sync="repo sync -c -j(math (nproc --all) \* 24) --force-sync --no-clone-bundle --no-tags"
-function osstinpois;    echo 'mkdir -p ~/log/$(pwd|tr / _|sed -E s/^_//) && mka bacon -j$(($(nproc --all) * 24)) | tee ~/log/$(pwd|tr '/' '_'|sed -E 's/^_//')/$(date '+%Z_%m%d-%H:%M:%S.%N'.log)'; end
 function asshole; while true; for n in (seq 1 3); echo "Syncing..." && sudo nice -n18 sync && echo "Sync completed successfully"; echo "$n \> drop_caches" && echo Dropping: [(echo -ne $n |sudo nice -n18 tee /proc/sys/vm/drop_caches)] && echo "Drop-caches completed successfully"; sleep 1; end; end; end
 function updatefishconfig; curl -Ls https://raw.githubusercontent.com/koumaza/dot/default/linux/fish/config.fish | tee ~/.config/fish/config.fish >/dev/null; fish.; end
 alias l="ls"
