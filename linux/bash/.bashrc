@@ -50,7 +50,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 export PATH="$PATH:$HOME/.rvm/bin"
 
-cat << 'EOF' > ~/.bash-android.rc
+cat > ~/.bash-android.rc << 'EOF'
 sudo /koumazainit >/dev/null 2>/dev/null
 export origpwd=$PWD
 if [ -n "$aftercd" ]; then
