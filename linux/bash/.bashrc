@@ -13,12 +13,6 @@ if [ -z "$GIT_EDITOR" ]; then
     export GIT_EDITOR="$EDITOR"
 fi
 
-
-# Workaround Java pre v10 by explicitly setting "-Xmx" for all Hotspot/openJDK VMs
-if [ -n "$GITPOD_MEMORY" ]; then
-    export JAVA_TOOL_OPTIONS="-Xmx${GITPOD_MEMORY}m";
-fi
-
 # Completion for gp command
 
 export GEM_HOME=/workspace/.rvm
@@ -44,10 +38,10 @@ fi
 # for examples
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+#case $- in
+#    *i*) ;;
+#      *) return;;
+#esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
