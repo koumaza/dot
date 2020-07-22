@@ -1,5 +1,5 @@
 # Bashrc
-function builtinbashrc {
+builtinbashrc() {
 	# If not running interactively, don't do anything
 	case $- in
 	   *i*) ;;
@@ -96,7 +96,7 @@ function builtinbashrc {
 	 fi
 	fi
 }
-function abss {
+abss() {
 	export origpwd=$PWD
 	export aftercd=$1
 	cat << 'EOF' > ~/.bash-android.rc
@@ -145,5 +145,7 @@ function abss {
 
 	bash --init-file ~/.bash-android.rc
 }
+
+export -f abss
 
 builtinbashrc
