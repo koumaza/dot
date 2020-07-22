@@ -24,21 +24,12 @@ export PATH=$PYTHONUSERBASE/bin:$PATH
 unset PIP_TARGET
 unset PYTHONPATH
 
-# Set CARGO_HOME to reside in workspace if:
-#  - it's RUNTIME (/workspace present)
 if [ -d /workspace ]; then
     export CARGO_HOME=/workspace/.cargo
     export PATH=$CARGO_HOME/bin:$PATH
 fi
-
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
 HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
 shopt -s checkwinsize
@@ -61,13 +52,6 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
-fi
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
 fi
 PS1='\[]0;\u \w\]\[[01;32m\]\u\[[00m\] \[[01;34m\]\w\[[00m\] \$ '
 export PATH="$PATH:$HOME/.rvm/bin"
