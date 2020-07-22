@@ -51,6 +51,7 @@ fi
 export PATH="$PATH:$HOME/.rvm/bin"
 
 cat<<-'EOF'>~/.bash-android.rc
+export PS1=[Android-Environment]${PS1}
 sudo /koumazainit >/dev/null 2>/dev/null
 export origpwd=$PWD
 if [ -n "$aftercd" ]; then
