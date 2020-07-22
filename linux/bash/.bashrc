@@ -9,8 +9,6 @@ if [ -z "$GIT_EDITOR" ]; then
     export GIT_EDITOR="$EDITOR"
 fi
 
-# Completion for gp command
-
 export GEM_HOME=/workspace/.rvm
 export GEM_PATH=$GEM_HOME:$GEM_PATH
 export PATH=/workspace/.rvm/bin:$PATH
@@ -33,7 +31,6 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 shopt -s globstar
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-force_color_prompt=yes
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -51,7 +48,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-PS1='\[]0;\u \w\]\[[01;32m\]\u\[[00m\] \[[01;34m\]\w\[[00m\] \$ '
 export PATH="$PATH:$HOME/.rvm/bin"
 
 cat << 'EOF' > ~/.bash-android.rc
