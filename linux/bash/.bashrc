@@ -101,3 +101,5 @@ export aftercd=$1
 bash --init-file ~/.bash-android.rc
 }
 export -f abss
+
+alias bashconfigupdate="curl -Ls https://github.com/koumaza/dot/raw/default/linux/bash/.bashrc > ~/.bashrc"
