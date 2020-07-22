@@ -1,5 +1,4 @@
-# Bashrc
-builtinbashrc() {
+# Builtin Bashrc
 	# If not running interactively, don't do anything
 	case $- in
 	   *i*) ;;
@@ -147,5 +146,3 @@ abss() {
 }
 
 export -f abss
-
-builtinbashrc
