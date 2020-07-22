@@ -94,7 +94,7 @@
 	   . /etc/bash_completion
 	 fi
 	fi
-}
+
 abss() {
 	export origpwd=$PWD
 	export aftercd=$1
