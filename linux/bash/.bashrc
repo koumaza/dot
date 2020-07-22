@@ -102,4 +102,4 @@ bash --init-file ~/.bash-android.rc
 }
 export -f abss
 
-alias bashconfigupdate="curl -Ls https://github.com/koumaza/dot/raw/default/linux/bash/.bashrc > ~/.bashrc"
+alias bashconfigupdate="curl -Ls https://github.com/koumaza/dot/raw/default/linux/bash/.bashrc |sed 's/\r//g' > ~/.bashrc"
