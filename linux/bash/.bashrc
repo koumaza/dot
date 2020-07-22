@@ -1,4 +1,4 @@
-function buildinbashrc {
+function builtinbashrc {
 	# If not running interactively, don't do anything
 	case $- in
 	   *i*) ;;
@@ -145,4 +145,4 @@ function abss {
 	bash --init-file ~/.bash-android.rc
 }
 
-buildinbashrc
+builtinbashrc
