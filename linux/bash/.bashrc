@@ -1,5 +1,3 @@
-source /etc/bash_completion
-
 # editor config
 if [ -z "$EDITOR" ]; then
     export EDITOR="nvim"
