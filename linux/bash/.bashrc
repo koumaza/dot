@@ -92,7 +92,6 @@ function clean {
 function sync {
   fish -c repo2sync
 }
-
 EOF
 
 abss() {
