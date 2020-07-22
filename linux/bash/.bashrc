@@ -91,9 +91,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-abss() {
-export origpwd=$PWD
-export aftercd=$1
 cat << 'EOF' > ~/.bash-android.rc
 sudo /koumazainit >/dev/null 2>/dev/null
 export origpwd=$PWD
@@ -137,6 +134,10 @@ function sync {
   fish -c repo2sync
 }
 EOF
+
+abss() {
+export origpwd=$PWD
+export aftercd=$1
 bash --init-file ~/.bash-android.rc
 }
 export -f abss
