@@ -58,7 +58,7 @@ if [ -n "$aftercd" ]; then
   cd $aftercd
 fi
 function build {
-  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope >/dev/null 
+  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope >/dev/null 2>/dev/null
   export cpuj=$1
   if [ -z "$cpuj" ]; then
   export cpuj="12"
@@ -71,6 +71,23 @@ function build {
   echo '>> mka bacon' && \
   mkdir -p ~/log/$(pwd|tr / _|sed -E s/^_//) && \
   mka bacon -j$(($(nproc --all) * $cpuj)) | tee ~/log/$(pwd|tr / _|sed -E s/^_//)/$(date +%Z_%m%d-%H:%M:%S.%N.log)
+}
+function build_recoveryimage {
+  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope >/dev/null 2>/dev/null
+  export cpuj=$1
+  if [ -z "$cpuj" ]; then
+  export cpuj="12"
+  fi
+  echo '>> . build/envsetup.sh'
+  read -p '>> lunch ' device_codename_value
+  export device_codename_value=$device_codename_value
+  read -p 'true/false | ALLOW_MISSING_DEPENDENCIES=' ALLOW_MISSING_DEPENDENCIES
+  export ALLOW_MISSING_DEPENDENCIES=$ALLOW_MISSING_DEPENDENCIES
+  . build/envsetup.sh && \
+  lunch $device_codename_value && \
+  echo '>> mka recoveryimage' && \
+  mkdir -p ~/log/$(pwd|tr / _|sed -E s/^_//) && \
+  mka recoveryimage -j$(($(nproc --all) * $cpuj)) | tee ~/log/$(pwd|tr / _|sed -E s/^_//)/$(date +%Z_%m%d-%H:%M:%S.%N.log)
 }
 function cdir {
   cd $origpwd/$*
