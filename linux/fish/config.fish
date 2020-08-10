@@ -5,6 +5,7 @@ set -gx GEMPATH ~/.gem/ruby/*
 set -gx GEMBINPATH (echo $GEMPATH|sed -e "s/ /\/bin /g" -e 's/$/\/bin /g')
 set -gx FISHCONFIG ~/.config/fish/config.fish
 set -gx EDITOR nvim
+set -gx NVM_DIR ~/.nvm
 # Path
 set -gx PATH ~/bin ~/.bin $GOPATH/bin $RUBYPATH $GEMBINPATH $PATH
 # Alias
