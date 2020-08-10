@@ -22,5 +22,6 @@ fisher add \
   edc/bass \
   jethrokuan/z \
   0rax/fish-bd \
-  sijad/gitignore
+  sijad/gitignore \
+  jorgebucaran/fish-nvm
 ```
