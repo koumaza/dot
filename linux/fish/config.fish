@@ -25,7 +25,7 @@ function cm; mkdir -p $argv ; cd $argv ; end
 alias cf="env HOME=(mktemp -d) fish --login"
 alias curlo="curl -LO"
 function fishconfig; $EDITOR $FISHCONFIG; fish.; end
-function repofind; cd ~/repo/(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 (ghq root)/{}/README*"); end
+function repofind; yes ''|cd ~/repo/(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 (ghq root)/{}/README*"); end
 # Keybind
 function fish_user_key_bindings
   bind \cg repofind
