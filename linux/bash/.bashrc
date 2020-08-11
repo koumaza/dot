@@ -20,6 +20,8 @@ export PATH=$PYTHONUSERBASE/bin:$PATH
 unset PIP_TARGET
 unset PYTHONPATH
 
+source /usr/share/nvm/init-nvm.sh
+
 if [ -d /workspace ]; then
     export CARGO_HOME=/workspace/.cargo
     export PATH=$CARGO_HOME/bin:$PATH
