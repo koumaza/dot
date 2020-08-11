@@ -1,4 +1,8 @@
 # Depends
+## Attatch
+```haskell
+curl -sL https://github.com/koumaza/dot/raw/default/linux/fish/config.fish|tr -d '\r' > ~/.config/fish/config.fish
+```
 ### Powerline-go
 ```python
 go get -u github.com/justjanne/powerline-go
