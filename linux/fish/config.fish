@@ -41,6 +41,20 @@ function en2ja-int
     en2ja $intr
   end
 end
+function ja2en
+  curl -sL https://gist.github.com/koumaza/6026efd35025a7b634f8b8e47c43f5f6/raw/c14e39d34193f0ffdc893c97c65b9691a7c2bf9c/ja2en.fish.sh|env argv=$argv HOME=/tmp fish
+end
+function ja2en-int
+  while true
+    read intr -p "echo '|Ja |> En| :>> '"
+    if test "$intr" = break
+      break
+    else if test "$intr" = exit
+      break
+    end
+    ja2en $intr
+  end
+end
 # Keybind
 function fish_user_key_bindings
   bind \cg repofind
