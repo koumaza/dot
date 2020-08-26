@@ -27,6 +27,20 @@ alias cf="env HOME=(mktemp -d) fish --login"
 alias curlo="curl -LO"
 function fishconfig; $EDITOR $FISHCONFIG; fish.; end
 function repofind; yes ''|cd ~/repo/(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 (ghq root)/{}/README*"); end
+function en2ja
+  curl -sL https://gist.github.com/koumaza/6026efd35025a7b634f8b8e47c43f5f6/raw/c14e39d34193f0ffdc893c97c65b9691a7c2bf9c/en2ja.fish.sh|env argv=$argv HOME=/tmp fish
+end
+function en2ja-int
+  while true
+    read intr -p "echo '|En |> Ja| :>> '"
+    if test "$intr" = break
+      break
+    else if test "$intr" = exit
+      break
+    end
+    en2ja $intr
+  end
+end
 # Keybind
 function fish_user_key_bindings
   bind \cg repofind
