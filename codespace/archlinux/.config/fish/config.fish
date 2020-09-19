@@ -43,6 +43,10 @@ if test -f ~/.dvm/scripts/dvm
 end
 # Rust
 bass source $HOME/.cargo/env
+# Perl
+## Plenv
+set -gx PATH $HOME/.plenv/bin $PATH
+eval (plenv init - fish)
 
 # User
 ## Function

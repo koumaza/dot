@@ -46,6 +46,10 @@ fi
 # Rust
 ## Rustup
 source $HOME/.cargo/env
+# Perl
+## Plenv
+export PATH="$HOME/.plenv/bin:$PATH"
+eval "$(plenv init - bash)"
 
 # User
 ## Prompt
