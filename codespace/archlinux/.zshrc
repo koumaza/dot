@@ -1,5 +1,5 @@
 # UserPath
-export PATH="$PATH:/dirty/.local/bin"
+export PATH="$PATH:~/.local/bin"
 # Python
 ## Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
