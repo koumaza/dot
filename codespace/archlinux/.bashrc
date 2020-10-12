@@ -1,3 +1,5 @@
+# UserPath
+export PATH="$PATH:~/.local/bin"
 # Python
 ## Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
