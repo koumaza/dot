@@ -1,3 +1,5 @@
+# UserPath
+set -gx PATH $PATH ~/.local/bin
 # Python
 ## Pyenv
 set -gx PYENV_ROOT $HOME/.pyenv
